@@ -1,0 +1,123 @@
+﻿@{
+    ViewBag.Title = "Voir Profil";
+}
+@model Projet_GoFast.Models.Utilisateur
+
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+<link href="~/CSS/bootstrap.css" rel="stylesheet" />
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet">
+<link href="~/CSS/responsive.css" rel="stylesheet" />
+<link href="~/CSS/Style.css" rel="stylesheet" />
+
+<body>
+    <div class="hero_area">
+        <header class="header_section">
+            <div class="container-fluid">
+                <nav class="navbar navbar-expand-lg custom_nav-container">
+                    <a href="#">
+                        <img src="~/images/gofast7.png" alt="logo" style="width: 100px; height: auto;">
+                    </a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <div class="d-flex ml-auto flex-column flex-lg-row align-items-center">
+                            <ul class="navbar-nav">
+                                <li class="nav-item active" style=" margin-right:15px">
+                                    <a href="@Url.Action("Deconnexion", "User")" style="color:black; font-weight:bold">DECONNEXION</a>
+                                </li>
+
+                                <li class="nav-item active" style=" margin-right:15px">
+                                    <a href="@Url.Action("Acceuil", "User")" style="color:black; font-weight:bold">RETOUR</a>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </header>
+        <section class="slider_section">
+            @Html.HiddenFor(model => model.UtilisateurId)
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <table class="table">
+                            <tr>
+                                <th>@Html.DisplayNameFor(model => model.Abonnement.Titre)</th>
+                                <th>@Html.DisplayNameFor(model => model.Adresse.Rue)</th>
+                                <th>@Html.DisplayNameFor(model => model.Nom)</th>
+                                <th>@Html.DisplayNameFor(model => model.Prenom)</th>
+                                <th>@Html.DisplayNameFor(model => model.Email)</th>
+                                <th>@Html.DisplayNameFor(model => model.Telephone)</th>
+                                <th>@Html.DisplayNameFor(model => model.Abonnement.Titre)</th>
+
+                                <th>@Html.DisplayNameFor(model => model.Adresse.Province.Nom)</th>
+                                <th>@Html.DisplayNameFor(model => model.Adresse.Rue)</th>
+                                <th>@Html.DisplayNameFor(model => model.Adresse.Ville)</th>
+                                <th>@Html.DisplayNameFor(model => model.Adresse.CodePostal)</th>
+
+
+
+                                <th>@Html.DisplayNameFor(model => model.ImagePath)</th>
+                                <th></th>
+                            </tr>
+                            <tr>
+                                <td>@Html.DisplayFor(model => model.Abonnement.Titre)</td>
+                                <td>@Html.DisplayFor(model => model.Adresse.Rue)</td>
+                                <td>@Html.DisplayFor(model => model.Nom)</td>
+                                <td>@Html.DisplayFor(model => model.Prenom)</td>
+                                <td>@Html.DisplayFor(model => model.Email)</td>
+                                <td>@Html.DisplayFor(model => model.Telephone)</td>
+                                <td>@Html.DisplayFor(model => model.Abonnement.Titre)</td>
+
+                                <td>@Html.DisplayFor(model => model.Adresse.Province.Nom)</td>
+                                <td>@Html.DisplayFor(model => model.Adresse.Rue)</td>
+                                <td>@Html.DisplayFor(model => model.Adresse.Ville)</td>
+                                <td>@Html.DisplayFor(model => model.Adresse.CodePostal)</td>
+
+                                <td>
+                                    <img src="@Url.Content("~/Photos/" + Model.ImagePath)" alt="User Image" style="max-width: 100px; height: auto;" />
+                                </td>
+
+
+                                <td>
+                                    @Html.ActionLink("Edit", "Edit", new { id = Model.UtilisateurId }) |
+                                    @Html.ActionLink("Details", "Details", new { id = Model.UtilisateurId }) |
+                                    @Html.ActionLink("Delete", "Delete", new { id = Model.UtilisateurId })
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- footer section -->
+    <script src="~/js/bootstrap.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+
+    <!-- owl carousel script -->
+    <script type="text/javascript">
+        $(".owl-carousel").owlCarousel({
+            loop: true,
+            margin: 20,
+            navText: [],
+            autoplay: true,
+            autoplayHoverPause: true,
+            responsive: {
+                0: { items: 1 },
+                768: { items: 2 },
+                1000: { items: 2 }
+            }
+        });
+
+
+    </script>
+    <!-- end owl carousel script -->
+</body>

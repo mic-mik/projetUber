@@ -1,0 +1,58 @@
+﻿@model Projet_GoFast.Models.Voiture
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Voiture</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Marque.Titre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Marque.Titre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Modele)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Modele)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Annee)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Annee)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Immatriculation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Immatriculation)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PermisConduite)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PermisConduite)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.VoitureId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

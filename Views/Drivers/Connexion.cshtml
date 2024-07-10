@@ -1,0 +1,160 @@
+﻿@model Projet_GoFast.Models.Chauffeur
+
+@{
+    ViewBag.Title = "Connexion";
+}
+
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+<link href="~/CSS/bootstrap.css" rel="stylesheet" />
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet">
+<link href="~/CSS/responsive.css" rel="stylesheet" />
+<link href="~/CSS/Style.css" rel="stylesheet" />
+
+<body>
+
+    <div class="hero_area">
+        <header class="header_section">
+            <div class="container-fluid">
+                <nav class="navbar navbar-expand-lg custom_nav-container ">
+                    <a href="#">
+                        <img src="~/images/gofast7.png" alt="logo" style="width: 100px; height: auto;">
+                    </a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon">
+
+                        </span>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <div class="d-flex ml-auto flex-column flex-lg-row align-items-center">
+                            <ul class="navbar-nav  ">
+                                <li class="nav-item active">
+
+                                    <a href="@Url.Action("Index", "User")" style="color:black; font-weight:bold"> ACCEUIL</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="@Url.Action("Inscription", "Drivers")" style="color: black; margin-left: 20px; font-weight: bold"> S'INSCRIRE</a>
+                                </li>
+
+
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </header>
+
+        <section class="contact_section layout_padding-bottom">
+            <div class="container">
+                <div class="heading_container">
+                    <h2>
+                        INSCRIPTION  <br>
+                        CHAUFEUR
+                    </h2>
+                </div>
+            </div>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-5  offset-md-1">
+                        <div class="contact_form">
+                            <h4 style="font-weight:bold">
+                                SE CONNECTER
+                            </h4>
+                            @using (Html.BeginForm())
+                            {
+                                @Html.AntiForgeryToken()
+
+                                <div class="inline-form-group">
+
+                                    @Html.EditorFor(model => model.Email, new
+                               {
+                                   htmlAttributes = new
+                                   {
+                                       @class = "form-control",
+                                       placeholder = "Entrer Email"
+                                   }
+                               })
+                                    @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+
+                                </div>
+                                <div class="inline-form-group">
+
+                                    @Html.EditorFor(model => model.MotDePasse, new
+                                        {
+                                        htmlAttributes = new
+                                        {
+                                           @class = "form-control",
+                                           placeholder = "Entrer Mot de passe",
+                                           Type = "password"
+                                        }
+                                        })
+                                    @Html.ValidationMessageFor(model => model.MotDePasse, "", new { @class = "text-danger" })
+
+                                </div>
+
+
+
+                                <div class="btm_input">
+                                    <button style="color:black; font-weight:bold">Envoyer</button>
+                                </div>
+
+                                if (ViewBag.Message != null)
+                                {
+                                    <p style="background-color: #f7c621; margin-top: 10px; font-weight:bold">@ViewBag.Message</p>
+                                }
+                            }
+                            <a href="@Url.Action("MotPaaseOublie", "Drivers")" style="color: white;  font-weight: bold"> Mot de passe oublié</a>
+                        </div>
+                    </div>
+                    <div class="col-md-6 px-0">
+                        <div class="img-box">
+                            <img src="/images/contact-img.png" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+
+    </div>
+
+    <!-- footer section -->
+    <script src="~/js/bootstrap.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
+    </script>
+
+
+    <!-- owl carousel script -->
+    <script type="text/javascript">
+        $(".owl-carousel").owlCarousel({
+            loop: true,
+            margin: 20,
+            navText: [],
+            autoplay: true,
+            autoplayHoverPause: true,
+            responsive: {
+                0: {
+                    items: 1
+                },
+                768: {
+                    items: 2
+                },
+                1000: {
+                    items: 2
+                }
+            }
+        });
+    </script>
+    <!-- end owl carousel script -->
+
+</body>
+
+
+
+

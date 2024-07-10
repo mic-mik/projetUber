@@ -1,0 +1,98 @@
+﻿@model Projet_GoFast.Models.Utilisateur
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Utilisateur</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Abonnement.Titre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Abonnement.Titre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Adresse.Rue)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Adresse.Rue)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nom)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nom)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Prenom)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Prenom)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Telephone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Telephone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MotDePasse)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MotDePasse)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Roles)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Roles)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.estPremiereConnection)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.estPremiereConnection)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ImagePath)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ImagePath)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.UtilisateurId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

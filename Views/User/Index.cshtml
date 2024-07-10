@@ -1,0 +1,560 @@
+﻿@model Projet_GoFast.Models.CommentairePublic
+@{
+    ViewBag.Title = "Index";
+}
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+<link href="~/CSS/bootstrap.css" rel="stylesheet" />
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet">
+<link href="~/CSS/responsive.css" rel="stylesheet" />
+<link href="~/CSS/Style.css" rel="stylesheet" />
+
+<body>
+
+    <div class="hero_area">
+        <header class="header_section">
+            <div class="container-fluid">
+                <nav class="navbar navbar-expand-lg custom_nav-container ">
+                    <a href="#">
+                        <img src="~/images/gofast7.png" alt="logo" style="width: 100px; height: auto;">
+                    </a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon">
+
+                        </span>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <div class="d-flex ml-auto flex-column flex-lg-row align-items-center">
+                            <ul class="navbar-nav  ">
+                                <li class="nav-item">
+                                    @Html.DropDownList("rolesInscrireDropdown", (List<SelectListItem>)ViewBag.INSCRIRE, new { @id = "rolesInscrireDropdown", @class = "form-control" })
+                                </li>
+                                <li class="nav-item" style="margin-left:15px">
+                                    @Html.DropDownList("rolesConnecterDropdown", (List<SelectListItem>)ViewBag.CONNECTER, new { @id = "rolesConnecterDropdown", @class = "form-control" })
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </header>
+        <section class=" slider_section ">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-7 ">
+                        <div class="box">
+                            <div class="detail-box">
+                                <h4>
+                                    BIENVENUE SUR 
+                                </h4>
+                                <h1>
+                                    GoFast
+                                </h1>
+                            </div>
+
+                            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                                <ol class="carousel-indicators">
+                                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                                    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                                    <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+                                    <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
+                                    <li data-target="#carouselExampleIndicators" data-slide-to="6"></li>
+                                    <li data-target="#carouselExampleIndicators" data-slide-to="7"></li>
+                                    <li data-target="#carouselExampleIndicators" data-slide-to="8"></li>
+                                </ol>
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active">
+                                        <img src="~/images/michee2.png" class="d-block w-95" alt="Image 1" style="height: 350px; width:680px">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="/images/6.png" class="d-block w-95" alt="Image 2" style="height: 350px">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="/images/5.png" class="d-block w-95" alt="Image 3" style="height: 350px;">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="/images/michee 1.png" class="d-block w-95" alt="Image 4" style="height: 350px; width: 680px">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="/images/2.png" class="d-block w-95" alt="Image 5" style="height: 350px;">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="/images/7.png" class="d-block w-95" alt="Image 6" style="height: 350px;">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="/images/michee3.png" class="d-block w-95" alt="Image 7" style="height: 350px;">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="~/images/testnew.png" class="d-block w-95" alt="Image 7" style="height: 350px;">
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+   
+                    </div>
+                    <div class="col-lg-4 col-md-5 ">
+                        <div class="slider_form">
+                            <h4>
+                                Envoyer commentaire
+                            </h4>
+                            @using (Html.BeginForm())
+                            {
+                                @Html.AntiForgeryToken()
+
+                                <div class="inline-form-group">
+                                    @Html.EditorFor(model => model.Nom, new
+                                    {
+                                        htmlAttributes = new
+                                        {
+                                            @class = "form-control",
+                                            placeholder = "Entrer Nom"
+                                        }
+                                    })
+                                    @Html.ValidationMessageFor(model => model.Nom, "", new { @class = "text-danger" })
+                                </div>
+
+                                <div class="inline-form-group">
+                                    @Html.EditorFor(model => model.Prenom, new
+                                    {
+                                        htmlAttributes = new
+                                        {
+                                            @class = "form-control",
+                                            placeholder = "Entrer Prenom"
+                                        }
+                                    })
+                                    @Html.ValidationMessageFor(model => model.Prenom, "", new { @class = "text-danger" })
+                                </div>
+
+                                <div class="inline-form-group">
+                                    @Html.EditorFor(model => model.Email, new
+                                    {
+                                        htmlAttributes = new
+                                        {
+                                            @class = "form-control",
+                                            placeholder = "Entrer Email"
+                                        }
+                                    })
+                                    @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                                </div>
+    
+
+
+
+                                <div class="inline-form-group">
+                                    @Html.TextAreaFor(model => model.Commentaire, new { @class = "Commentaire", placeholder ="  Entrer commentaire" })
+                                    @Html.ValidationMessageFor(model => model.Commentaire, "", new { @class = "text-danger" })
+                                </div>
+
+
+                                <div class="btm_input"  style="margin-top:15px">
+                                    @Html.EditorFor(model => model.Telephone, new
+                               {
+                                   htmlAttributes = new
+                                   {
+                                       @class = "form-control",
+                                       placeholder = Html.DisplayNameFor(model => model.Telephone)
+                                   }
+                               })
+                                    @Html.ValidationMessageFor(model => model.Telephone, "", new { @class = "text-danger" })
+
+                                    <button style="color:black; font-weight:bold">Envoyer</button>
+                                </div>
+
+                                if (ViewBag.Message1 != null)
+                                {
+                                    <p style="background-color: #f7c621; margin-top: 10px; font-weight:bold">@ViewBag.Message1</p>
+                                }
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+    </div>
+
+    <section class="about_section layout_padding">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-4 col-md-5 offset-lg-2 offset-md-1">
+                    <div class="detail-box">
+                        <h2>
+                            À PROPOS <br>
+                            GoFast 
+                        </h2>
+                        <p style="text-align:justify">
+                            Notre application de réservation de taxi est née de la volonté de révolutionner le secteur du transport
+                            urbain en offrant une solution moderne, fiable et sécurisée pour les utilisateurs. Consciente des défis actuels
+                            et futurs du secteur, notre équipe a conçu une plateforme qui vise à répondre aux besoins diversifiés des utilisateurs,
+                            des chauffeurs, et des entreprises de transport.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="img-box">
+                        <img src="~/images/image6.png" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- end about section -->
+    <!-- service section -->
+
+    <section class="service_section layout_padding">
+        <div class="container">
+            <div class="heading_container">
+                <h2>
+                    Notre <br>
+                    Services de taxis
+                </h2>
+            </div>
+            <div class="service_container">
+                <div class="box">
+                    <div class="img-box">
+                        <img src="/images/delivery-man.png" alt="">   
+                    </div>
+                    <div class="detail-box">
+                        <h5>
+                            Private Driver
+                        </h5>
+                        <p style="width: 250px; text-align: justify">
+                            Réservez un chauffeur privé pour un service personnalisé et confortable, adapté à vos besoins spécifiques.
+
+                        </p>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="img-box">
+                        <img src="/images/airplane.png" alt="">
+                    </div>
+                    <div class="detail-box">
+                        <h5>
+                            Transfert Aéroport
+                        </h5>
+                        <p style="width: 250px; text-align: justify">
+                            Profitez d'un service de transfert fiable vers et depuis l'aéroport pour commencer ou terminer votre voyage en toute sérénité.
+
+                        </p>
+
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="img-box">
+                        <img src="/images/backpack.png" alt="">
+                    </div>
+                    <div class="detail-box">
+                        <h5>
+                            Sécurité
+                        </h5>
+                        <p style="width: 250px; text-align: justify">
+                            Voyagez en toute sécurité avec notre application qui priorise la vérification des chauffeurs et le suivi en temps réel des trajets.
+
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- end service section -->
+    <!-- news section -->
+
+    <section class="news_section layout_padding">
+        <div class="container">
+            <div class="heading_container">
+                <h2>
+                    Meilleurs <br>
+                    Chauffeurs
+                </h2>
+            </div>
+            <div class="news_container">
+                <div class="box">
+                    <div class="date-box">
+                        <h6>
+                            Jean Dupont
+                        </h6>
+                    </div>
+                    <div class="img-box">
+                        <img src="~/images/VOITURE1.jpeg" alt="VOITURE1" style="width: 330px; height: 220px ">
+                    </div>
+                    <div class="detail-box">
+                        <h6>
+                            15 Années de service
+                        </h6>
+                        <p style=" text-align: justify;">
+                            Jean Dupont, un chauffeur expérimenté avec plus de 15 ans de service, conduit une Mercedes-Benz.
+                            Cette voiture est réputée pour son confort et son élégance, offrant
+                            des sièges en cuir ajustables, une climatisation automatique et un système de
+                            navigation intégré.
+
+                        </p>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="date-box">
+                        <h6>
+                            Marie Lemoine
+                        </h6>
+                    </div>
+                    <div class="img-box">
+                        <img src="~/images/VOITURE2.jpeg"  alt="VOITURE2"  style="width:330px; height:220px">
+                    </div>
+                    <div class="detail-box">
+                        <h6>
+                            10 Années de service
+                        </h6>
+                        <p style=" text-align: justify;">
+                            Marie Lemoine, chauffeur depuis 10 ans, utilise une Mercedes-Benz.
+                            Cette voiture est équipée d'un intérieur spacieux, d'un toit ouvrant
+                            panoramique et d'un système audio haut de gamme, offrant ainsi
+                            confort et plaisir de conduite à ses passagers.
+
+                        </p>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="date-box">
+                        <h6>
+                            Ahmed Ben Ali
+                        </h6>
+                    </div>
+                    <div class="img-box">
+                        <img src="~/images/VOITURE4.jpg" alt="VOITURE4" style="width: 330px; height: 220px ">
+                    </div>
+                    <div class="detail-box">
+                        <h6>
+                            20 Années de service
+                        </h6>
+                        <p style=" text-align: justify;">
+                            Ahmed Ben Ali, avec une expérience de 20 ans, conduit une Lexus. Cette voiture combine technologie avancée et luxe,
+                            avec un système de conduite assistée, des sièges chauffants et une interface
+                            de commande vocale, assurant sécurité et confort optimal lors des trajets.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- end news section -->
+    <!-- client section -->
+
+    <section class="client_section layout_padding-bottom">
+        <div class="container">
+            <div class="heading_container">
+                <h2>
+                    Avis <br>
+                    Client 
+                    
+                </h2>
+            </div>
+            <div class="client_container">
+                <div class="carousel-wrap ">
+                    <div class="owl-carousel">
+                        <div class="item">
+                            <div class="box">
+                                <div class="img-box">
+                                    <img src="/images/client-1.png" alt="">
+                                </div>
+                                <div class="detail-box">
+                                    <h3>
+                                        Dominique
+                                    </h3>
+                                    <p style=" text-align: justify;">
+                                        Ma dernière course avec votre chauffeur Jean Dupont a été exceptionnelle.
+                                        Non seulement il est arrivé à l'heure, mais il a également été très courtois et professionnel tout au long du trajet. Sa Mercedes-Benz Classe E était impeccable et confortable, ce qui a rendu mon voyage très agréable. Je recommande vivement votre service
+                                        à tous ceux qui recherchent un transport fiable et de qualité.
+                                    </p>
+                                    <img src="/images/quote.png" alt="">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="box">
+                                <div class="img-box">
+                                    <img src="/images/client-2.png" alt="">
+                                </div>
+                                <div class="detail-box">
+                                    <h3>
+                                        Chariotte 
+                                    </h3>
+                                    <p style=" text-align: justify;">
+                                        J'ai été impressionné par le service que j'ai reçu de la part de Marie Lemoine. Sa BMW Série 3 était non seulement luxueuse mais aussi extrêmement
+                                        propre. Elle a été très accommodante et m'a même aidé à porter mes bagages jusqu'à la voiture. Sa
+                                        conduite était fluide et sécurisée, et elle connaissait parfaitement bien les routes. Je n'hésiterai pas à utiliser à nouveau votre service.
+                                    </p>
+                                    <img src="/images/quote.png" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="app_section layout_padding2">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="detail-box">
+                        <h2>
+                            Téléchargez notre application
+                            détails
+                        </h2>
+                        <div class="text-box">
+                            <h5>
+                                details
+                            </h5>
+                            <p style=" text-align: justify;">
+                                C'est un fait établi depuis longtemps qu'un lecteur sera distrait par le contenu lisible d'une page lors de la distribution des lettres.f letters
+                            </p>
+                        </div>
+                        <div class="text-box">
+                            <h5>
+                                Comment ça fonctionne
+                            </h5>
+                            <p style=" text-align: justify;">
+                                C'est un fait établi depuis longtemps qu'un lecteur sera distrait par le contenu lisible d'une page lors de la distribution des lettres.
+                            </p>
+                        </div>
+                        <div class="btn-box">
+                            <a href="">
+                                <img src="/images/playstore.png" alt="">
+                            </a>
+                            <a href="">
+                                <img src="/images/appstore.png" alt="">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="img-box">
+                        <img src="~/images/mapgofrast.jpg" alt="" style=" width: 300px; height:500px">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- end app section -->
+    <!-- why section -->
+
+    <section class="why_section layout_padding">
+        <div class="container">
+            <div class="heading_container">
+                <h2>
+                    Pourquoi <br>
+                    Choisissez-nous
+                
+                </h2>
+            </div>
+            <div class="why_container">
+                <div class="box">
+                    <div class="img-box">
+                        <img src="/images/delivery-man-white.png" alt="" class="img-1">
+                        <img src="/images/delivery-man-black.png" alt="" class="img-2">
+                    </div>
+                    <div class="detail-box">
+                        <h5>
+                            Meilleurs pilotes
+                        </h5>
+                        <p style=" text-align: justify;">
+                            C'est un fait établi depuis longtemps qu'un lecteur sera distrait par le contenu lisible d'une page lorsqu'il consultera son contenu.
+                        </p>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="img-box">
+                        <img src="/images/shield-white.png" alt="" class="img-1">
+                        <img src="/images/shield-black.png" alt="" class="img-2">
+                    </div>
+                    <div class="detail-box">
+                        <h5>
+                            Sûr et sécurisé
+                        </h5>
+                        <p style=" text-align: justify;">
+                            C'est un fait établi depuis longtemps qu'un lecteur sera distrait par le contenu lisible d'une page lorsqu'il consultera son contenu.
+                        </p>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="img-box">
+                        <img src="/images/repairing-service-white.png" alt="" class="img-1">
+                        <img src="/images/repairing-service-black.png" alt="" class="img-2">
+                    </div>
+                    <div class="detail-box">
+                        <h5>
+                            Assistance 24h/24 et 7j/7
+                        </h5>
+                        <p style=" text-align: justify;">
+                            C'est un fait établi depuis longtemps qu'un lecteur sera distrait par le contenu lisible d'une page lorsqu'il consultera son contenu.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- end why section -->
+
+    <!-- footer section -->
+    <script src="~/js/bootstrap.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
+    </script>
+
+
+    <!-- owl carousel script -->
+    <script type="text/javascript">
+        $(".owl-carousel").owlCarousel({
+            loop: true,
+            margin: 20,
+            navText: [],
+            autoplay: true,
+            autoplayHoverPause: true,
+            responsive: {
+                0: {
+                    items: 1
+                },
+                768: {
+                    items: 2
+                },
+                1000: {
+                    items: 2
+                }
+            }
+        });
+
+
+        document.getElementById("rolesInscrireDropdown").addEventListener("change", function() {
+            var selectedValue = this.value;
+            if (selectedValue === "Chauffeur") {
+                window.location.href = '@Url.Action("Inscription", "Drivers")';
+            } else if (selectedValue === "Passager") {
+                window.location.href = '@Url.Action("Inscription", "User")';
+            }
+        });
+
+        document.getElementById("rolesConnecterDropdown").addEventListener("change", function() {
+            var selectedValue = this.value;
+            if (selectedValue === "Chauffeur") {
+                window.location.href = '@Url.Action("Connexion", "Drivers")';
+            } else if (selectedValue === "Passager") {
+                window.location.href = '@Url.Action("Connexion", "User")';
+            }
+        });
+    </script>
+
+
+</body>
+
